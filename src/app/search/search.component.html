@@ -1,0 +1,32 @@
+<form (ngSubmit)=onSubmit(f) #f="ngForm">
+  <table>
+  <tr><td>Enter moviename:</td><td>
+  <input type="text" name="moviename" ngModel /> </td></tr>
+  <tr><td></td><td><button type="submit">Search</button></td></tr>
+  
+  </table>
+  </form>
+  
+  <p *ngIf='!status else display'> </p>
+  
+  
+  <ng-template #display>
+      
+      <table class="table">
+  <p *ngFor="let data of myData">
+          <tr> <td></td> <td><input type="hidden" name="moviename" [(ngModel)]=data._id></td></tr>  
+          <tr> <td> Moviename </td> <td><input type="text" name="moviename" [(ngModel)]=data.moviename></td></tr> 
+          <tr> <td> Actress </td> <td><input type="text" name="actress" [(ngModel)]=data.actress></td></tr> 
+          <tr> <td> Actor </td> <td> <input type="text" name="actor" [(ngModel)]=data.actor></td></tr>
+          <tr> <td> Director </td> <td> <input type="text" name="director" [(ngModel)]=data.director></td></tr>
+          
+    
+    
+  </p>
+  
+      </table>
+  
+  
+  </ng-template>
+  
+  
